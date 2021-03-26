@@ -14,12 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Stuff.init({
-      stuff_id: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          unique: true,
-          primaryKey: true,
-      },
+      id:{
+            type: DataTypes.INTEGER.UNSIGNED,
+            autoIncrement:true,
+            primaryKey:true,
+            allowNull: false
+        },
       first_name: {
           type: DataTypes.STRING,
           allowNull: false
