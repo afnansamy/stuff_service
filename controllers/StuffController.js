@@ -29,13 +29,29 @@ const store = async (req, res) => {
     }
 }
 
-//fine one stuff by stuff_id
+//fine one stuff by id
 const show = async (req, res) => {
     const stuff_id = req.params.stuff_id
 
     try {
         const stuff = await Stuff.findOne({
             where: { stuff_id }
+        })
+
+        return res.json(stuff)
+
+    } catch (err) {
+        console.log(err)
+        return res.status(500).json({ error: 'something went WRONG' })
+    }
+}
+//fine one stuff by email
+const readByEmail = async (req, res) => {
+    const stuff_id = req.params.email
+
+    try {
+        const stuff = await Stuff.findOne({
+            where: { email }
         })
 
         return res.json(stuff)
